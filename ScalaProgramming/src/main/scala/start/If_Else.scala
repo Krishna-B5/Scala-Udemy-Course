@@ -8,11 +8,11 @@ object If_Else {
     var res = ""
     
     if(x == 5){
-      println(" X is equal to 5")
+      println(s"$x is equal to 5\n")
       res = "X = 5"
     }
     else{
-      println(" X is not equal to 5 ")
+      println(" $x is not equal to 5 ")
       res = "X != 5"
     }
     println(res)

@@ -17,7 +17,8 @@ object If_Else {
     }
     println(res)
     
-    println(if(x == 6) "x = 5" else "x != 5")
+    val res2 = if(x == 6) "x = 5" else "x != 5"
+      println(s"\n$res2 is the ans")
   }
   
 }

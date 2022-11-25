@@ -14,6 +14,7 @@ object ForLoop {
       println("Value of i using until : " +i)
     }
     println
+    println
     for(i <- 1 to 3; j <- 1 until 4){
       println("Values of i and j is : " +i +" "+j)
     }

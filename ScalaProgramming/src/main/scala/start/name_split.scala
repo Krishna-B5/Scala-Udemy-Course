@@ -42,7 +42,7 @@ object name_split {
     resdf.show()
     
     resdf.withColumn("First_Name", $"elements".getItem(0))
-         .withColumn("Middle_Name", $"elements".getItem(1))l
+         .withColumn("Middle_Name", $"elements".getItem(1))
          .withColumn("Last_Name", $"elements".getItem(2))
          .drop("elements")
          .show()

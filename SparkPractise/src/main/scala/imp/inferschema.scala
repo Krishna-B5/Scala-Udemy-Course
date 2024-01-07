@@ -21,7 +21,7 @@ object inferschema {
 			val spark = SparkSession.builder().getOrCreate()
 			import spark.implicits._
 			
-			println("======== With Inferschema =============")
+			println("======== With Inferschema (It will detect the dataType in metadata)=============")
 			
 			val df = spark.read.format("csv")
 			         .option("header", "true")
@@ -32,7 +32,7 @@ object inferschema {
 		 df.show()
 		 df.printSchema()
 		 
-		 println("======== Without Inferschema =============")
+		 println("======== Without Inferschema (By dedault it will consider as String)=============")
 		 
 		 val df1 = spark.read.format("csv")
 			         .option("header", "true")

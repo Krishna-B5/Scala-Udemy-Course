@@ -30,10 +30,12 @@ object caseclass_schema {
     val mapdata = splitdata.map(x => fschema(x(0),x(1),x(2),x(3),x(4),x(5)))
     
     mapdata.foreach(println) // you can print RDD[schema] 
-    // after converting to column before converting to DF 
+    
+    println("\n\n After converting to column before converting to DF \n")
     val result = mapdata.filter(x => x.category.contains("Gymnastics"))
     result.foreach(println)
     
+    println("\n Converting to DataFrame \n")
     val df = mapdata.toDF()
     df.show()
     

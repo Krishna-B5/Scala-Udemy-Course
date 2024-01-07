@@ -26,11 +26,13 @@ object file {
 			
 			val df = spark.read.format("csv")
 			         .option("header", "true")
-			         .option("delimiter", "|")
+			         .option("delimiter", "|") // by default ,
 			         .option("inferschema", "true") 
+			         // by default metadata string if inferschema true analyze the column dataType in metadata
 			         .load("C:/data/CSV/dense_rank.csv")	
 			      
 			 df.show()
+			 df.printSchema()
 			val df2 = df.filter("Product_Categroy = 'bathroom'")
 			df2.show()
 			         

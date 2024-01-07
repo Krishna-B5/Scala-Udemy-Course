@@ -34,15 +34,21 @@ object DT_File {
 				StructField("product",StringType,true),
 				StructField("spendby",StringType,true)
 				))
+				
+	 
+		val rdata = rddddata.map( x => x.split(",")) // U can't print map values
+		
+		rdata.foreach(println)
 
 
 		println("======== Original Data ========")    
 		val data = spark.read.format("csv")
+		           .option("delimiter",",")
 		           .load("file:///c:/data/dt.txt")      
 
 		data.show()
 
-		println("=========== reading a file and applying Struct to DF spark read ===========")
+		println("=========== reading a file and applying header Struct to DF spark read ===========")
 
 		val data1 = spark.read.format("csv")
 		            .schema(tschema)

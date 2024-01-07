@@ -34,18 +34,19 @@ object file {
 			val df2 = df.filter("Product_Categroy = 'bathroom'")
 			df2.show()
 			         
+				
 		  val windowSpe = Window.partitionBy("Product_Categroy").orderBy(col("Sale_Amount").desc)
 		  
-			println("======= Rank returns sequential num with gaps ======")        
+			println("======= Rank returns sequential number with gaps ======")        
 			val df1 = df.withColumn("Rank", rank().over(windowSpe)).show()
 			
-			println("======= Returns rank rows without any gaps ========")
+			println("======= Dense rank returns number without any gaps ========")
 			val df3 = df.withColumn("Rank", dense_rank().over(windowSpe)).show()
 			
-			println("====== Returns seq of num starting with 1 =======")
+			println("====== Row Number returns seq of num starting with 1 =======")
 			val df4 = df.withColumn("Rank", row_number().over(windowSpe)).show()
 			
-			println("====== Returns percentile rank of rows ========")
+			println("====== Percentile Returns percentage rank of rows ========")
 		  val df5 = df.withColumn("Rank", percent_rank().over(windowSpe)).show()
 
 

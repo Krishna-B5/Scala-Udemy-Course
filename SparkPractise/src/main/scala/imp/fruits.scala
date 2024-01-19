@@ -10,7 +10,8 @@ import org.apache.spark.sql.functions._
 
 
 object fruits {
-
+  
+// WAP to groupby date transpose the fruits and find the total
 	println("====== This is telegram example started =======")
 
 	def main(args: Array[String]):Unit={

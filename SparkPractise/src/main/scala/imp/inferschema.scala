@@ -11,7 +11,7 @@ import org.apache.spark.sql.Dataset
 object inferschema {
   
   def main(args:Array[String]):Unit={
-    
+    // Inferschema by default all the columns will be string it will detect automatically datatype
     println("====== Started =======")
     
     val conf = new SparkConf().setAppName("Master").setMaster("local[*]")

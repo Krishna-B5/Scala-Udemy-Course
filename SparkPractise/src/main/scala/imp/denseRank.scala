@@ -14,7 +14,7 @@ object denseRank {
   
   
   def main(args:Array[String]):Unit={
-    
+    // find the 2nd highest rank use window function
     println("======= Started =========")
     
     val conf = new SparkConf().setAppName("Master").setMaster("local[*]")

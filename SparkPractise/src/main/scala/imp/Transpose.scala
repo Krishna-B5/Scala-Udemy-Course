@@ -10,6 +10,8 @@ import org.apache.spark.sql.functions._
 object Transpose {
   
   def main(args: Array[String]):Unit={
+    
+    // WAP to groupby date transpose the subjects and find the total
   println("========= Started ============")
   
   val conf = new SparkConf().setAppName("first").setMaster("local[*]")

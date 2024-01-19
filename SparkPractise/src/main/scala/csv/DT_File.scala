@@ -36,38 +36,37 @@ object DT_File {
 				))
 				
 	 
-		val rdata = rddddata.map( x => x.split(",")) // U can't print map values
+		val rdata = rddddata.map( x => x.split(",")) // U can't print Array[String] values
 		
 		rdata.foreach(println)
 
 
-		println("======== Original Data ========")    
+		println("======== Original Data without header========")    
 		val data = spark.read.format("csv")
 		           .option("delimiter",",")
 		           .load("file:///c:/data/dt.txt")      
 
 		data.show()
 
-		println("=========== reading a file and applying header Struct to DF spark read ===========")
+		println("=========== Applying header Struct to DF spark read ===========")
 
 		val data1 = spark.read.format("csv")
 		            .schema(tschema)
 		            .load("file:///c:/data/dt.txt")
 
 		data1.show()
-		println("========== Seq Data ==========")
+		println("\n========== Seq Data ==========")
 		val seqdata = Seq(Row("00000000","06-26-2011","200","Exercise","GymnasticsPro","cash"),
-		                  Row("00000003","06-05-2011","100","Gymnastics","Rings","credit"))
+		                  Row("00000003","06-05-2011","100","Gymnastics","Rings",""))
 
 		seqdata.foreach(println)
 		
-		println("========== Reading Seq data & converting to DF use parllelize")
+		println("\n ========== Reading Seq data & converting to DF using parllelize")
 		
 		val df = spark.createDataFrame(
 		          spark.sparkContext.parallelize(seqdata),tschema)
 		          
 		 df.show()
-		
 		          
 		println(" ======== END =========")
 
